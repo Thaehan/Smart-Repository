@@ -1,0 +1,61 @@
+.chart{
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+
+.chart-lot-background {
+    -dx-background-color: transparent;
+}
+
+.chart-pie {
+    -fx-border-color: derive(-fxp-pie-color, 1%);
+    -dx-border-width: 0px;
+}
+
+.linear-grad {
+    
+    -fx-background-color: linear-gradient(to bottom left, #8ae7eb, #1596bd);
+}
+
+.button1 {
+    -fx-background-color: #52b9d1;
+    -fx-background-radius: 5;
+    -fx-text-fill: #ffffff;
+}
+
+.button1:hover {
+    -fx-text-fill: #075ddd;
+} 
+
+.button1:pressed {
+    -fx-text-fill: #1771bb;
+}
+
+.button1:active {
+    -fx-text-fill: #90AFF5;
+}
+
+.button2 {
+    -fx-background-color: #a8d9e7;
+    -fx-background-radius: 5;
+    -fx-text-fill: #035bc0;
+    -fx-border-color: #027bec;
+    -fx-border-radius: 5;
+}
+
+.button2:hover {
+    -fx-text-fill: #458cc7;
+} 
+
+.button2:pressed {
+    -fx-text-fill: #1b51a3;
+}
+
+.button2:active {
+    -fx-text-fill: #90AFF5;
+}
+
+.text {
+    -fx-text-fill: #e7ebd7;
+}
