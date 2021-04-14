@@ -1,5 +1,5 @@
 package saleManagement.Controller;
 
-public class ViewController {
+public class TableController {
 
 }

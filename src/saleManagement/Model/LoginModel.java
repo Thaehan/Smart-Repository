@@ -1,13 +1,8 @@
 package saleManagement.Model;
 
-import java.sql.*;
+import java.sql.DriverManager;
 
-public class LoginModel extends ModelResource {
-    private Connection connection = null;
-    private Statement statement = null;
-    private PreparedStatement preparedStatement = null;
-    private ResultSet resultSet = null;
-
+public class LoginModel extends DatabaseConnection {
     public LoginModel(){
         try {
             //Connection to database
@@ -45,9 +40,4 @@ public class LoginModel extends ModelResource {
         return false;
     }
 
-
-
-    public static void main(String[] args) throws Exception {
-        LoginModel db = new LoginModel();
-    }
 }
