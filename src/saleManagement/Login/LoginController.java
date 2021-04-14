@@ -19,7 +19,21 @@ public class LoginController {
     @FXML
     private ImageView bgimage;
 
-    public void buttonPressed(ActionEvent event) {
-        System.out.println("button clicked");
+    public void loginPressed(ActionEvent event) {
+        String acc = getAccount();
+        String pas = getPassword();
+        System.out.println("login");
+    }
+
+    public void recoveryPressed(ActionEvent event) {
+        System.out.println("recovery");
+    }
+
+    public String getAccount() {
+        return account.getText();
+    }
+
+    public String getPassword() {
+        return password.getText();
     }
 }

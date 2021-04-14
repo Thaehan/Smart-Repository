@@ -1,4 +1,5 @@
 package saleManagement.Login;
+import saleManagement.ResourceDestination.Resource;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
@@ -9,10 +10,10 @@ public class Login extends Application{
 
     public void start(Stage primaryStage) throws Exception {
         try{
-            Parent parentRoot = FXMLLoader.load(getClass().getResource("Login.fxml"));
+            Parent parentRoot = FXMLLoader.load(getClass().getResource(Resource.fxmlFolder + "Login.fxml"));
             Scene scene = new Scene(parentRoot);
-            parentRoot.getStylesheets().add(getClass().getResource("stylesheet.css").toString());
-            primaryStage.setTitle("Login SalesManger");
+            parentRoot.getStylesheets().add(getClass().getResource(Resource.resouceFolder + "stylesheet.css").toString());
+            primaryStage.setTitle("Login Sales Management");
             primaryStage.setIconified(false);
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
