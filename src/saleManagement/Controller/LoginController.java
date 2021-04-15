@@ -1,26 +1,22 @@
 package saleManagement.Controller;
 
+import saleManagement.Launcher;
 import saleManagement.Resource;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import saleManagement.Model.LoginModel;
 import saleManagement.View.AdditionalView;
 
 public class LoginController {
     LoginModel loginModel = new LoginModel();
-    @FXML
-    private BorderPane mainPane;
-
     @FXML
     private TextField account;
     @FXML
@@ -32,13 +28,12 @@ public class LoginController {
     @FXML
     private ImageView bgimage;
 
-    @FXML
     public void goToTable(ActionEvent event) {
         try {
-            Parent tableParent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Table.fxml"));
-            Scene tableScene = new Scene(tableParent);
+            Launcher.parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Table.fxml"));
+            Launcher.scnene = new Scene(Launcher.parent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.setScene(tableScene);
+            window.setScene(Launcher.scnene);
             window.show();
         } catch(Exception e) {
             e.printStackTrace();

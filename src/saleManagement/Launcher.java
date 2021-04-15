@@ -6,10 +6,12 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 public class Launcher extends Application{
+    public static Parent parent;
+    public static Scene scnene;
 
     public void start(Stage primaryStage) throws Exception {
         try{
-            Parent parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Login.fxml"));
+            parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Login.fxml"));
             Scene scene = new Scene(parent);
             parent.getStylesheets().add(getClass().getResource(Resource.resouceFolder + "stylesheet.css").toString());
             primaryStage.setTitle("Sales Management");
