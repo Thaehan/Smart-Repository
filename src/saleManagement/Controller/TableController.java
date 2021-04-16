@@ -1,5 +1,7 @@
 package saleManagement.Controller;
 
+import animatefx.animation.FadeIn;
+import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import saleManagement.Launcher;
@@ -22,11 +24,12 @@ public class TableController {
 
     public void logout(ActionEvent event) {
         try{
-            Launcher.parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Login.fxml"));
-            Launcher.scnene = new Scene(Launcher.parent);
+            Parent parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Login.fxml"));
+            Scene scnene = new Scene(parent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.setScene(Launcher.scnene);
+            window.setScene(scnene);
             window.show();
+            new FadeIn(((Node)event.getSource()).getParent()).play();
         } catch(Exception e) {
             e.printStackTrace();
         }

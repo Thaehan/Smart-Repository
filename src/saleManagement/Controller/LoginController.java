@@ -1,5 +1,7 @@
 package saleManagement.Controller;
 
+import animatefx.animation.FadeIn;
+import javafx.scene.Parent;
 import saleManagement.Launcher;
 import saleManagement.Resource;
 import javafx.event.ActionEvent;
@@ -30,11 +32,12 @@ public class LoginController {
 
     public void goToTable(ActionEvent event) {
         try {
-            Launcher.parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Table.fxml"));
-            Launcher.scnene = new Scene(Launcher.parent);
+            Parent parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Table.fxml"));
+            Scene scnene = new Scene(parent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
-            window.setScene(Launcher.scnene);
+            window.setScene(scnene);
             window.show();
+            new FadeIn(parent).play();
         } catch(Exception e) {
             e.printStackTrace();
         }
