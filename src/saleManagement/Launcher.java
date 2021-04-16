@@ -8,16 +8,18 @@ import javafx.scene.Scene;
 
 public class Launcher extends Application{
     public static Parent parent;
+    public static String viewFolder = "/saleManagement/View/";
+    public static String resouceFolder = "/resource/";
 
     public void start(Stage primaryStage) throws Exception {
         try{
-            parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Login.fxml"));
-            Scene scene = new Scene(parent);
-            parent.getStylesheets().add(getClass().getResource(Resource.resouceFolder + "stylesheet.css").toString());
+            parent = FXMLLoader.load(getClass().getResource(viewFolder + "Login.fxml"));
+            Scene loginScene = new Scene(parent);
+            parent.getStylesheets().add(getClass().getResource(resouceFolder + "stylesheet.css").toString());
             primaryStage.setTitle("Sales Management");
             primaryStage.setIconified(false);
             primaryStage.setResizable(false);
-            primaryStage.setScene(scene);
+            primaryStage.setScene(loginScene);
             primaryStage.show();
             new FadeIn(parent).play();
         } catch(Exception e) {
