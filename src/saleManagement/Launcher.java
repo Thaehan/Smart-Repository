@@ -1,4 +1,5 @@
 package saleManagement;
+import animatefx.animation.FadeIn;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -19,6 +20,8 @@ public class Launcher extends Application{
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
+
+            new FadeIn(parent).play();
         } catch(Exception e) {
             e.printStackTrace();
             System.exit(0);
