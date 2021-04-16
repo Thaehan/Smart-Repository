@@ -1,7 +1,7 @@
 package saleManagement.Controller;
 
 import animatefx.animation.FadeIn;
-import javafx.scene.Parent;
+import animatefx.animation.FadeInUpBig;
 import saleManagement.Launcher;
 import saleManagement.Resource;
 import javafx.event.ActionEvent;
@@ -30,14 +30,14 @@ public class LoginController {
     @FXML
     private ImageView bgimage;
 
-    public void goToTable(ActionEvent event) {
+    public void changeHomeScene(ActionEvent event) {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Table.fxml"));
-            Scene scnene = new Scene(parent);
+            Launcher.parent = FXMLLoader.load(getClass().getResource(Resource.viewFolder + "Home.fxml"));
+            Scene scnene = new Scene(Launcher.parent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(scnene);
             window.show();
-            new FadeIn(parent).play();
+            new FadeInUpBig(Launcher.parent).play();
         } catch(Exception e) {
             e.printStackTrace();
         }
@@ -47,8 +47,7 @@ public class LoginController {
         String acc = account.getText();
         String pas = password.getText();
         if (loginModel.checkLogin(acc, pas)) {
-            //To do
-            goToTable(event);
+            changeHomeScene(event);
             System.out.println("true");
         }
         else {

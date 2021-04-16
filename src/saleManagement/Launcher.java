@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 
 public class Launcher extends Application{
     public static Parent parent;
-    public static Scene scnene;
 
     public void start(Stage primaryStage) throws Exception {
         try{
@@ -20,7 +19,6 @@ public class Launcher extends Application{
             primaryStage.setResizable(false);
             primaryStage.setScene(scene);
             primaryStage.show();
-
             new FadeIn(parent).play();
         } catch(Exception e) {
             e.printStackTrace();

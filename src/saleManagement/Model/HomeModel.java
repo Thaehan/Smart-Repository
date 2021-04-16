@@ -2,8 +2,8 @@ package saleManagement.Model;
 
 import java.sql.DriverManager;
 
-public class TableModel extends DatabaseConnection{
-    public TableModel() {
+public class HomeModel extends DatabaseConnection{
+    public HomeModel() {
         try {
             connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
             statement = connection.createStatement();
