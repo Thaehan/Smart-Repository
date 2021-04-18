@@ -39,6 +39,10 @@ public abstract class DashboardController extends BigController {
         }
     }
 
+    public void homButtonPressed(ActionEvent event) {
+        System.out.println("home");
+    }
+
     public void stockButtonPressed(ActionEvent event) {
         System.out.println("stock");
     }
