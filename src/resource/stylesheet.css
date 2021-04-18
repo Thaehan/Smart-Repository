@@ -1,22 +1,8 @@
-.chart{
-    -fx-padding: 10px;
-    -fx-background-color: transparent;
-    -fx-legend-visible: false;
-}
-
-.chart-lot-background {
-    -dx-background-color: transparent;
-}
-
-.chart-pie {
-    -fx-border-color: derive(-fxp-pie-color, 1%);
-    -dx-border-width: 0px;
-}
-
 .linear-grad {
-    
-    -fx-background-color: linear-gradient(to bottom left, #8ae7eb, #1596bd);
+    -fx-background-color: linear-gradient(to top right, #74f73c, #00d0ff);
 }
+
+/* #8ae7eb, #1596bd); */
 
 .button1 {
     -fx-background-color: #52b9d1;
@@ -58,4 +44,113 @@
 
 .text {
     -fx-text-fill: #e7ebd7;
+}
+
+.line-color {
+    -fx-background-color: #ffffff;
+}
+
+.transparentCon {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 10;
+}
+
+.whiteBackground {
+    -fx-background-color: rgba(255, 255, 255, 0.9);
+}
+
+.dash {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-radius: 10;
+    -fx-text-fill: #ffffff;
+}
+
+.dash:hover {
+    -fx-text-fill: #6164fc94;
+    -fx-background-color:#61fcbb94;
+} 
+
+.dash:pressed {
+    -fx-text-fill: #4dedf8;
+    -fx-background-color:#00b18a94;
+}
+
+.dash:active {
+    -fx-text-fill: #ffffff;
+}
+
+.stock {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-radius: 10;
+}
+
+.stock:hover {
+    -fx-text-fill: #00b66a;
+    -fx-background-color:#67e037be;
+} 
+
+.stock:pressed {
+    -fx-text-fill: #33fd00;
+    -fx-background-color:#4d9e2dd5;
+}
+
+.stock:active {
+    -fx-text-fill: #ffffff;
+}
+
+.his {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-radius: 10;
+}
+
+.his:hover {
+    -fx-text-fill: #c5b800;
+    -fx-background-color:#e9ff6bee;
+} 
+
+.his:pressed {
+    -fx-text-fill: #e9ff6bee;
+    -fx-background-color:#b5c200;
+}
+
+.his:active {
+    -fx-text-fill: #ffffff;
+}
+
+.help {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-radius: 10;
+}
+
+.help:hover {
+    -fx-text-fill: #f813d2;
+    -fx-background-color:#e17dff;
+} 
+
+.help:pressed {
+    -fx-text-fill: #e9ff6bee;
+    -fx-background-color:#b5c200;
+}
+
+.help:active {
+    -fx-text-fill: #ffffff;
+}
+
+.logout {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-background-radius: 10;
+}
+
+.logout:hover {
+    -fx-text-fill: #c5b800;
+    -fx-background-color:#e9ff6bee;
+} 
+
+.logout:pressed {
+    -fx-text-fill: #e9ff6bee;
+    -fx-background-color:#b5c200;
+}
+
+.logout:active {
+    -fx-text-fill: #ffffff;
 }

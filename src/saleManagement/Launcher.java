@@ -11,7 +11,7 @@ public class Launcher extends Application{
     public static String viewFolder = "/saleManagement/View/";
     public static String resouceFolder = "/resource/";
 
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage primaryStage) {
         try{
             parent = FXMLLoader.load(getClass().getResource(viewFolder + "Login.fxml"));
             Scene loginScene = new Scene(parent);

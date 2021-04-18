@@ -11,6 +11,4 @@ public class AdditionalView {
         alert.show();
     }
 
-
-
 }

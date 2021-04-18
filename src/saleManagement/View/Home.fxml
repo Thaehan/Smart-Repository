@@ -1,14 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="900.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.HomeController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.HomeController">
    <children>
-      <BorderPane prefHeight="900.0" prefWidth="1200.0" stylesheets="@../../resource/stylesheet.css">
-         <center>
-            <Button fx:id="logoutButton" mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="84.0" prefWidth="95.0" styleClass="button1" BorderPane.alignment="CENTER" />
-         </center>
+      <BorderPane prefHeight="800.0" prefWidth="1200.0" styleClass="linear-grad" stylesheets="@../../resource/stylesheet.css">
+         <top>
+            <HBox alignment="CENTER_LEFT" prefHeight="70.0" prefWidth="1200.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Label alignment="CENTER" prefHeight="70.0" prefWidth="154.0" text="Dashboard" textFill="WHITE">
+                     <font>
+                        <Font name="Calibri Bold" size="30.0" />
+                     </font>
+                  </Label>
+                  <Pane maxHeight="-Infinity" prefHeight="1.0" prefWidth="1.0" styleClass="line-color" HBox.hgrow="ALWAYS" />
+                  <ImageView fitHeight="47.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../resource/img/heart.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </top>
+         <left>
+            <VBox prefHeight="710.0" prefWidth="170.0" styleClass="transparentCon" BorderPane.alignment="CENTER">
+               <BorderPane.margin>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </BorderPane.margin>
+               <children>
+                  <Button fx:id="homeButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" prefHeight="150.0" prefWidth="170.0" styleClass="dash" text="Home">
+                     <font>
+                        <Font name="Calibri" size="35.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/home.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="stockButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#stockButtonPressed" prefHeight="150.0" prefWidth="170.0" styleClass="dash" text="Stock">
+                     <font>
+                        <Font name="Calibri" size="35.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/stock.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="historyButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#historyButtonPressed" prefHeight="150.0" prefWidth="170.0" styleClass="dash" text="History">
+                     <font>
+                        <Font name="Calibri" size="35.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/history.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="helpButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#helpButtonPressed" prefHeight="150.0" prefWidth="170.0" styleClass="dash" text="Help">
+                     <font>
+                        <Font name="Calibri" size="35.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/help.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="logoutButton" alignment="CENTER" contentDisplay="TOP" mnemonicParsing="false" onAction="#logoutButtonPressed" prefHeight="150.0" prefWidth="170.0" styleClass="dash" text="Logout">
+                     <font>
+                        <Font name="Calibri" size="35.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="45.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/logout.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+               </children>
+            </VBox>
+         </left>
       </BorderPane>
    </children>
 </AnchorPane>
