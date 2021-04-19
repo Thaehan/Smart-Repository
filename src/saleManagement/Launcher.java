@@ -7,7 +7,7 @@ import javafx.stage.Stage;
 import javafx.scene.Scene;
 
 public class Launcher extends Application{
-    public static Parent parent;
+    private Parent parent;
     public static String viewFolder = "/saleManagement/View/";
     public static String resouceFolder = "/resource/";
 

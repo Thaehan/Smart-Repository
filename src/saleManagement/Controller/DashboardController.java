@@ -5,16 +5,20 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import saleManagement.Launcher;
 
 import java.util.Optional;
 
-public abstract class DashboardController extends BigController {
+public class DashboardController extends BigController {
+    @FXML
+    protected BorderPane borderPane;
     @FXML
     protected Button homeButton;
     @FXML
@@ -28,31 +32,15 @@ public abstract class DashboardController extends BigController {
 
     public void changeLoginScene(ActionEvent event) {
         try{
-            Launcher.parent = FXMLLoader.load(getClass().getResource(Launcher.viewFolder + "Login.fxml"));
-            Scene loginScene = new Scene(Launcher.parent);
+            Parent parent = FXMLLoader.load(getClass().getResource(Launcher.viewFolder + "Login.fxml"));
+            Scene loginScene = new Scene(parent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(loginScene);
             window.show();
-            new FadeIn (Launcher.parent).play();
+            new FadeIn (parent).play();
         } catch(Exception e) {
             e.printStackTrace();
         }
-    }
-
-    public void homButtonPressed(ActionEvent event) {
-        System.out.println("home");
-    }
-
-    public void stockButtonPressed(ActionEvent event) {
-        System.out.println("stock");
-    }
-
-    public void historyButtonPressed(ActionEvent event) {
-        System.out.println("history");
-    }
-
-    public void helpButtonPressed(ActionEvent event) {
-        System.out.println("help");
     }
 
     public void logoutButtonPressed(ActionEvent event) {
@@ -65,4 +53,33 @@ public abstract class DashboardController extends BigController {
             changeLoginScene(event);
         }
     }
+
+    public void homButtonPressed(ActionEvent event) {
+        loadUI("Home.fxml");
+    }
+
+    public void stockButtonPressed(ActionEvent event) {
+        loadUI("Stock.fxml");
+    }
+
+    public void historyButtonPressed(ActionEvent event) {
+        loadUI("History.fxml");
+    }
+
+    public void helpButtonPressed(ActionEvent event) {
+        loadUI("Help.fxml");
+    }
+
+    protected void loadUI(String fxmlFile) {
+        Parent parent = null;
+        try {
+            parent = FXMLLoader.load(getClass().getResource(Launcher.viewFolder + fxmlFile));
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        borderPane.setCenter(parent);
+        new animatefx.animation.FadeIn(parent).play();
+
+    }
+
 }

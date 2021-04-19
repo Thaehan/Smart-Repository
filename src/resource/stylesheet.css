@@ -2,6 +2,10 @@
     -fx-background-color: linear-gradient(to top right, #9dd187, #00d0ff);
 }
 
+.shadow {
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0);
+}
+
 /* #8ae7eb, #1596bd); */
 
 .button1 {
@@ -60,6 +64,7 @@
 }
 
 .dash {
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0);
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-background-radius: 10;
     -fx-text-fill: #ffffff;
@@ -153,4 +158,9 @@
 
 .logout:active {
     -fx-text-fill: #ffffff;
+}
+
+.tableBackground {
+    -fx-background-color: rgba(255, 255, 255, 0.2);
+    -fx-background-radius: 10;
 }
