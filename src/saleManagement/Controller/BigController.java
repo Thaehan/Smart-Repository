@@ -9,7 +9,30 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import saleManagement.Launcher;
 
+import java.sql.*;
+
 public abstract class BigController {
+    protected static final String DB_URL = "jdbc:mysql://localhost:3306/saleManagement";
+    protected static final String USER_NAME = "root";
+    protected static final String PASSWORD = "";
+    protected Connection connection = null;
+    protected Statement statement = null;
+    protected PreparedStatement preparedStatement = null;
+    protected ResultSet resultSet = null;
+
+    public BigController() {
+        try {
+            //Connection to database
+            connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
+            //Create statement
+            statement = connection.createStatement();
+            //Get data
+            resultSet = null;
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void changeHomeScene(ActionEvent event) {
         try {
             Parent parent = FXMLLoader.load(getClass().getResource(Launcher.viewFolder + "Dashboard.fxml"));

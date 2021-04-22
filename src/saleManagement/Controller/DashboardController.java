@@ -10,6 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import saleManagement.Launcher;
@@ -55,11 +56,11 @@ public class DashboardController extends BigController {
     }
 
     public void homButtonPressed(ActionEvent event) {
-        loadUI("Home.fxml");
+        loadUI("Overview.fxml");
     }
 
     public void stockButtonPressed(ActionEvent event) {
-        loadUI("Stock.fxml");
+        loadUI("Repository.fxml");
     }
 
     public void historyButtonPressed(ActionEvent event) {
@@ -78,8 +79,7 @@ public class DashboardController extends BigController {
             e.printStackTrace();
         }
         borderPane.setCenter(parent);
-        new animatefx.animation.FadeIn(parent).play();
-
+        new animatefx.animation.FadeInLeft(parent).play();
     }
 
 }

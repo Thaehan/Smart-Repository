@@ -9,7 +9,6 @@ import saleManagement.Model.LoginModel;
 import saleManagement.View.AdditionalView;
 
 public class LoginController extends BigController {
-    LoginModel loginModel = new LoginModel();
     @FXML
     private TextField account;
     @FXML
@@ -19,10 +18,11 @@ public class LoginController extends BigController {
     @FXML
     private Button recoveryButton;
 
-    public void loginPressed(ActionEvent event)  {
-        String acc = account.getText();
-        String pas = password.getText();
-        if (loginModel.checkLogin(acc, pas)) {
+    private LoginModel loginModel;
+
+    public void loginPressed(ActionEvent event){
+        loginModel = new LoginModel(account.getText(), password.getText());
+        if (checkLogin(loginModel.getAccount(), loginModel.getPassword())) {
             changeHomeScene(event);
         }
         else {
@@ -34,11 +34,25 @@ public class LoginController extends BigController {
         System.out.println("recovery");
     }
 
-    public String getAccount() {
-        return account.getText();
+    public boolean checkLogin(String account, String password) {
+        loadData();
+        try {
+            while(resultSet.next()) {
+                if (account.equals(resultSet.getString("Account")) && password.equals(resultSet.getString("Password"))) {
+                    return true;
+                }
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
-    public String getPassword() {
-        return password.getText();
+    public void loadData() {
+        try {
+            resultSet = statement.executeQuery("SELECT * FROM `adminuser`");
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }

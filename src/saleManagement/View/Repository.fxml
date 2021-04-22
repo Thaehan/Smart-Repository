@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="755.0" prefWidth="1200.0" stylesheets="@../../resource/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.RepositoryController">
+   <children>
+      <BorderPane prefHeight="755.0" prefWidth="1200.0">
+         <center>
+            <TableView fx:id="productsTable" prefHeight="200.0" prefWidth="200.0" styleClass="backgroundC" BorderPane.alignment="CENTER">
+               <columns>
+                  <TableColumn fx:id="productName" editable="false" minWidth="20.0" prefWidth="117.0" styleClass="backgroundMENU" text="Product Name" />
+                  <TableColumn fx:id="productCode" editable="false" minWidth="20.0" prefWidth="116.0" styleClass="backgroundMENU" text="Product Code" />
+                  <TableColumn fx:id="category" editable="false" minWidth="20.0" prefWidth="115.0" styleClass="backgroundMENU" text="Category" />
+                  <TableColumn fx:id="quantity" editable="false" minWidth="20.0" prefWidth="114.0" styleClass="backgroundMENU" text="Quantity In Stock" />
+                  <TableColumn fx:id="measure" editable="false" minWidth="20.0" prefWidth="71.0" styleClass="backgroundMENU" text="Measure" />
+                  <TableColumn fx:id="unitPrice" editable="false" prefWidth="70.0" text="Price" />
+                  <TableColumn fx:id="details" prefWidth="369.0" text="Details" />
+               </columns>
+            </TableView>
+         </center>
+         <left>
+            <HBox prefHeight="755.0" prefWidth="227.0" styleClass="backgroundC" BorderPane.alignment="CENTER" />
+         </left>
+      </BorderPane>
+   </children>
+</AnchorPane>

@@ -1,5 +1,22 @@
 .linear-grad {
-    -fx-background-color: linear-gradient(to top right, #9dd187, #00d0ff);
+    -fx-background-color: linear-gradient(to top right, #acb0e7, #e1e3e4);
+}
+
+.backgroundOption {
+    -fx-background-color: #e9e0ee;
+}
+
+.backgroundC {
+    -fx-background-color: #ddeaf8;
+}
+
+.backgroundMenu {
+    -fx-background-color: #ffffff;
+}
+
+.labelMN {
+    -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-text-fill: linear-gradient(to bottom right, #424efd, #ff73dc);
 }
 
 .shadow {
@@ -9,17 +26,17 @@
 /* #8ae7eb, #1596bd); */
 
 .button1 {
-    -fx-background-color: #52b9d1;
+    -fx-background-color: #c2cbe9;
     -fx-background-radius: 5;
     -fx-text-fill: #ffffff;
 }
 
 .button1:hover {
-    -fx-text-fill: #075ddd;
+    -fx-text-fill: #765b96;
 } 
 
 .button1:pressed {
-    -fx-text-fill: #1771bb;
+    -fx-text-fill: #1b51a3;
 }
 
 .button1:active {
@@ -27,15 +44,15 @@
 }
 
 .button2 {
-    -fx-background-color: #a8d9e7;
+    -fx-background-color: #c2cbe9;
     -fx-background-radius: 5;
-    -fx-text-fill: #035bc0;
-    -fx-border-color: #027bec;
+    -fx-text-fill: #947ee2;
+    -fx-border-color: #52588f;
     -fx-border-radius: 5;
 }
 
 .button2:hover {
-    -fx-text-fill: #458cc7;
+    -fx-text-fill: #765b96;
 } 
 
 .button2:pressed {
@@ -60,24 +77,22 @@
 }
 
 .whiteBackground {
-    -fx-background-color: rgba(255, 255, 255, 0.9);
+    -fx-background-color: rgba(187, 203, 238, 0.9);
 }
 
 .dash {
-    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0);
+    /* -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0); */
     -fx-background-color: rgba(0, 0, 0, 0);
     -fx-background-radius: 10;
-    -fx-text-fill: #ffffff;
+    -fx-text-fill: #838383;
 }
 
 .dash:hover {
-    -fx-text-fill: #6164fc94;
-    -fx-background-color:#61fcbb94;
+    -fx-text-fill: #484ac494;
 } 
 
 .dash:pressed {
-    -fx-text-fill: #4dedf8;
-    -fx-background-color:#00b18a94;
+    -fx-text-fill: #6164fc94;
 }
 
 .dash:active {
@@ -163,4 +178,5 @@
 .tableBackground {
     -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-background-radius: 10;
+    
 }

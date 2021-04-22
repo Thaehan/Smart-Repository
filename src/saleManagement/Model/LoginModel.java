@@ -1,43 +1,25 @@
 package saleManagement.Model;
 
-import java.sql.DriverManager;
-
-public class LoginModel extends DatabaseConnection {
-    public LoginModel(){
-        try {
-            //Connection to database
-            connection = DriverManager.getConnection(DB_URL, USER_NAME, PASSWORD);
-            //Create statement
-            statement = connection.createStatement();
-            //Get data
-            resultSet = statement.executeQuery("SELECT * FROM `adminuser`");
-            //Show data
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+public class LoginModel{
+    private String account, password;
+    public LoginModel(String account, String password) {
+        this.account = account;
+        this.password = password;
     }
 
-    public void loadResultSet() {
-        try {
-            resultSet = statement.executeQuery("SELECT * FROM `adminuser`");
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public boolean checkLogin(String account, String password) {
-        try{
-            while(resultSet.next()) {
-                if (account.equals(resultSet.getString(2)) && password.equals(resultSet.getString(3))) {
-                    loadResultSet();
-                    return true;
-                }
-            }
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-        loadResultSet();
-        return false;
+    public void setAccount(String account) {
+        this.account = account;
     }
 
+    public String getAccount() {
+        return this.account;
+    }
+
+    public String getPassword() {
+        return this.password;
+    }
 }
