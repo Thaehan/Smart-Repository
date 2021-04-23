@@ -175,8 +175,10 @@
     -fx-text-fill: #ffffff;
 }
 
-.tableBackground {
-    -fx-background-color: rgba(255, 255, 255, 0.2);
-    -fx-background-radius: 10;
-    
+.table-view {
+    -fx-background-color: #ddeaf8;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #e60000;
 }

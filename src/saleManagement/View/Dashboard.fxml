@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.DashboardController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.DashboardController">
    <children>
       <BorderPane fx:id="borderPane" prefHeight="800.0" prefWidth="1200.0" styleClass="backgroundC" stylesheets="@../../resource/stylesheet.css">
          <top>
@@ -24,7 +29,7 @@
                         </ImageView>
                      </graphic>
                   </Label>
-                  <Pane prefHeight="45.0" prefWidth="540.0" />
+                  <Pane prefHeight="45.0" prefWidth="621.0" />
                   <Button fx:id="homeButton" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#homButtonPressed" prefHeight="150.0" styleClass="dash" text="Overview">
                      <font>
                         <Font name="Calibri" size="17.0" />
@@ -34,14 +39,6 @@
                      </effect>
                   </Button>
                   <Button fx:id="stockButton" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#stockButtonPressed" prefHeight="70.0" styleClass="dash" text="Repository">
-                     <font>
-                        <Font name="Calibri" size="17.0" />
-                     </font>
-                     <effect>
-                        <Blend />
-                     </effect>
-                  </Button>
-                  <Button fx:id="historyButton" alignment="CENTER_RIGHT" contentDisplay="TOP" mnemonicParsing="false" onAction="#historyButtonPressed" prefHeight="150.0" styleClass="dash" text="History">
                      <font>
                         <Font name="Calibri" size="17.0" />
                      </font>
