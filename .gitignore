@@ -1,1 +1,4 @@
-/out/*
+out
+SE_Shop.iml
+.DS_Store
+.idea/*
