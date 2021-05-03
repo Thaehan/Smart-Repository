@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="340.0" styleClass="whiteBackground" stylesheets="@../../resource/stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.ImportController">
+   <children>
+      <BorderPane prefHeight="500.0" prefWidth="340.0">
+         <top>
+            <Label alignment="BOTTOM_LEFT" prefHeight="40.0" prefWidth="400.0" styleClass="labelMN" stylesheets="@../../resource/stylesheet.css" text="Import Products" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="20.0" />
+               </font>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+            </Label>
+         </top>
+         <bottom>
+            <HBox prefHeight="50.0" prefWidth="400.0" styleClass="backgroundC" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="confirmButton" mnemonicParsing="false" onAction="#confirmButtonPressed" prefHeight="50.0" prefWidth="170.0" styleClass="labelMN" text="Confirm" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonPressed" prefHeight="50.0" prefWidth="170.0" styleClass="labelMN" text="Cancel" />
+               </children>
+            </HBox>
+         </bottom>
+         <center>
+            <VBox prefHeight="200.0" prefWidth="340.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="270.0">
+                     <children>
+                        <Label text="Product Code: ">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="productCodeBox" onAction="#updateCurrentQuantity" prefHeight="26.0" prefWidth="170.0">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </ComboBox>
+                        <Button fx:id="addProductCodeButton" mnemonicParsing="false" onAction="#addProductCodeButtonPressed" styleClass="dash">
+                           <graphic>
+                              <ImageView fitHeight="27.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../resource/img/addPL.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Button>
+                     </children>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="270.0">
+                     <children>
+                        <Label text="Quantity: ">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="quantityBox" nodeOrientation="LEFT_TO_RIGHT" prefWidth="170.0">
+                           <HBox.margin>
+                              <Insets left="40.0" />
+                           </HBox.margin>
+                        </TextField>
+                        <Label fx:id="maxQuantityLabel" prefHeight="23.0" prefWidth="45.0">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="270.0">
+                     <children>
+                        <Label text="Source:">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="sourceBox" nodeOrientation="LEFT_TO_RIGHT" prefWidth="170.0">
+                           <HBox.margin>
+                              <Insets left="54.0" />
+                           </HBox.margin>
+                        </TextField>
+                     </children>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </HBox>
+                  <HBox alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="270.0">
+                     <children>
+                        <Label text="Date:">
+                           <font>
+                              <Font name="Calibri" size="15.0" />
+                           </font>
+                        </Label>
+                        <DatePicker fx:id="dateBox" nodeOrientation="LEFT_TO_RIGHT" prefWidth="170.0">
+                           <HBox.margin>
+                              <Insets left="66.0" />
+                           </HBox.margin>
+                        </DatePicker>
+                     </children>
+                     <padding>
+                        <Insets left="15.0" />
+                     </padding>
+                  </HBox>
+                  <Label alignment="TOP_CENTER" contentDisplay="CENTER" prefHeight="29.0" prefWidth="340.0" text="Note: ">
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
+                  <TextArea fx:id="noteBox" prefHeight="170.0" prefWidth="340.0">
+                     <VBox.margin>
+                        <Insets />
+                     </VBox.margin>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </TextArea>
+               </children>
+            </VBox>
+         </center></BorderPane>
+   </children>
+</AnchorPane>

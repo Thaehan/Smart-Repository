@@ -108,7 +108,7 @@ public class RepositoryController extends BigController implements Initializable
     }
 
     public void importButtonPressed(ActionEvent event) {
-        System.out.println("import");
+        loadFunction("Import.fxml");
     }
 
     public void exportButtonPressed(ActionEvent event) {

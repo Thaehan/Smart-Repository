@@ -14,7 +14,7 @@ public class AdditionalView {
     public static void invalid() {
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Warning!");
-        alert.setContentText("Please check information again! Something could be invalid!");
+        alert.setContentText("Please check information again! Something could be invalid or empty!");
         alert.setHeaderText(null);
         alert.show();
     }

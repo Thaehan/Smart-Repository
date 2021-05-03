@@ -6,16 +6,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-
 import javafx.stage.Stage;
-import saleManagement.Model.ExportModel;
+import saleManagement.Model.ImportModel;
 import saleManagement.View.AdditionalView;
 
 import java.net.URL;
 import java.sql.Date;
 import java.util.ResourceBundle;
 
-public class ExportController extends BigController implements Initializable {
+public class ImportController extends BigController implements Initializable {
     @FXML
     Button confirmButton;
 
@@ -29,7 +28,7 @@ public class ExportController extends BigController implements Initializable {
     TextField quantityBox;
 
     @FXML
-    TextField destinationBox;
+    TextField sourceBox;
 
     @FXML
     DatePicker dateBox;
@@ -40,49 +39,15 @@ public class ExportController extends BigController implements Initializable {
     @FXML
     Label maxQuantityLabel;
 
-    private ExportModel exportModel = new ExportModel ();
-    private int max;
+    @FXML
+    Button addProductCodeButton;
 
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    private ImportModel importModel = new ImportModel();
+    private int currentQuantity;
+
+    @Override
+    public void initialize (URL url , ResourceBundle resourceBundle) {
         loadComboData();
-    }
-
-    public void confirmButtonPressed(ActionEvent event) {
-        String destination = destinationBox.getText();
-        String note = noteBox.getText();
-
-        try {
-            //get all data to models
-            Date date = java.sql.Date.valueOf(dateBox.getValue());
-            String productCode = productCodeBox.getValue();
-            int quantity = Integer.parseInt(quantityBox.getText());
-
-            exportModel.setDate(date);
-            exportModel.setProductCode(productCode);
-            exportModel.setQuantity(quantity);
-            exportModel.setDestination(destination);
-            exportModel.setNote(note);
-        } catch (Exception e) {
-            AdditionalView.invalid();
-        }
-
-        //execute query
-        if (checkDate(exportModel.getDate()) && checkQuantity(exportModel.getQuantity()) && !destination.isEmpty()) {
-            executeExport(exportModel.getProductCode(), exportModel.getQuantity());
-            exportReport();
-            resetInfo();
-        }
-        else {
-            AdditionalView.invalid();
-        }
-
-    }
-
-    public void cancelButtonPressed(ActionEvent event) {
-        // update
-
-        Stage stage =(Stage) cancelButton.getScene().getWindow();
-        stage.close();
     }
 
     public void loadComboData() {
@@ -100,6 +65,44 @@ public class ExportController extends BigController implements Initializable {
         }
     }
 
+    public void cancelButtonPressed(ActionEvent event) {
+        // update
+
+        Stage stage =(Stage) cancelButton.getScene().getWindow();
+        stage.close();
+    }
+
+    public void confirmButtonPressed(ActionEvent event) {
+        String source = sourceBox.getText();
+        String note = noteBox.getText();
+
+        try {
+            //get all data to models
+            Date date = Date.valueOf(dateBox.getValue());
+            String productCode = productCodeBox.getValue();
+            int quantity = Integer.parseInt(quantityBox.getText());
+
+            importModel.setDate(date);
+            importModel.setProductCode(productCode);
+            importModel.setQuantity(quantity);
+            importModel.setSource(source);
+            importModel.setNote(note);
+        } catch (Exception e) {
+            AdditionalView.invalid();
+        }
+
+        //execute query
+        if (checkDate(importModel.getDate()) && !source.isEmpty()) {
+            executeImport(importModel.getProductCode(), importModel.getQuantity());
+            importReport();
+            resetInfo();
+        }
+        else {
+            AdditionalView.invalid();
+        }
+
+    }
+
     public boolean checkDate(Date date) {
         try {
             String query = "SELECT DATE(NOW())";
@@ -115,24 +118,17 @@ public class ExportController extends BigController implements Initializable {
         return false;
     }
 
-    public boolean checkQuantity(Integer quantity) {
-        if (quantity <= max) {
-            return true;
-        }
-        return false;
-    }
-
-    public void executeExport(String productCode, Integer quantity) {
+    public void executeImport(String productCode, Integer quantity) {
         try {
-            int remain = max - quantity;
+            int newQuantity = currentQuantity + quantity;
             String query = "UPDATE `salemanagement`.`products`"
                     + " SET `quantity` = ?"
                     + " WHERE `productCode` = ?";
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setInt(1, remain);
+            preparedStatement.setInt(1, newQuantity);
             preparedStatement.setString(2, productCode);
             preparedStatement.executeUpdate();
-            updateMaxQuantity(null);
+            updateCurrentQuantity(null);
 
             AdditionalView.done();
         } catch(Exception e) {
@@ -141,31 +137,31 @@ public class ExportController extends BigController implements Initializable {
         }
     }
 
-    public void exportReport() {
+    public void importReport() {
         try {
-            String query = "INSERT INTO `salemanagement`.`export` (`productCode`, `quantity`, `date`, `destination`, `note`) " +
+            String query = "INSERT INTO `salemanagement`.`import` (`productCode`, `quantity`, `date`, `source`, `note`) " +
                     "VALUES (?, ?, ?, ?, ?);";
             preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, exportModel.getProductCode());
-            preparedStatement.setInt(2, exportModel.getQuantity());
-            preparedStatement.setDate(3, exportModel.getDate());
-            preparedStatement.setString(4, exportModel.getDestination());
-            preparedStatement.setString(5, exportModel.getNote());
+            preparedStatement.setString(1, importModel.getProductCode());
+            preparedStatement.setInt(2, importModel.getQuantity());
+            preparedStatement.setDate(3, importModel.getDate());
+            preparedStatement.setString(4, importModel.getSource ());
+            preparedStatement.setString(5, importModel.getNote());
             preparedStatement.executeUpdate();
         } catch(Exception e) {
-            System.out.println("Can't report export");
+            System.out.println("Can't report import");
         }
     }
 
-    public void updateMaxQuantity(ActionEvent event) {
+    public void updateCurrentQuantity(ActionEvent event) {
         try {
             String currentProduct = productCodeBox.getSelectionModel().getSelectedItem();
             String query = "SELECT quantity FROM products WHERE productCode = '"
                     + currentProduct + "'";
             resultSet = statement.executeQuery(query);
             resultSet.next();
-            max = resultSet.getInt(1);
-            maxQuantityLabel.setText("< " + max);
+            currentQuantity = resultSet.getInt(1);
+            maxQuantityLabel.setText("St: " + currentQuantity);
         } catch(Exception e) {
             AdditionalView.invalid();
 //            System.out.println("Failed update max quantity");
@@ -175,10 +171,14 @@ public class ExportController extends BigController implements Initializable {
     public void resetInfo() {
         quantityBox.setText("");
 
-        destinationBox.setText("");
+        sourceBox.setText("");
 
         dateBox.setValue(null);
 
         noteBox.setText("");
+    }
+
+    public void addProductCodeButtonPressed(ActionEvent event) {
+        System.out.println("add");
     }
 }
