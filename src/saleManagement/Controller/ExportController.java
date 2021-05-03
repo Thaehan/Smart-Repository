@@ -1,6 +1,5 @@
 package saleManagement.Controller;
 
-import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -44,24 +43,33 @@ public class ExportController extends BigController implements Initializable {
     private int max;
 
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        loadData();
+        loadComboData();
     }
 
     public void confirmButtonPressed(ActionEvent event) {
-        Date date = null;
-        Integer quantity = null;
-        String productCode = null;
+        String destination = destinationBox.getText();
+        String note = noteBox.getText();
+
         try {
-            date = java.sql.Date.valueOf(dateBox.getValue());
-            productCode = productCodeBox.getValue();
-            quantity = Integer.parseInt(quantityBox.getText());
+            //get all data to models
+            Date date = java.sql.Date.valueOf(dateBox.getValue());
+            String productCode = productCodeBox.getValue();
+            int quantity = Integer.parseInt(quantityBox.getText());
+
+            exportModel.setDate(date);
+            exportModel.setProductCode(productCode);
+            exportModel.setQuantity(quantity);
+            exportModel.setDestination(destination);
+            exportModel.setNote(note);
         } catch (Exception e) {
             AdditionalView.invalid();
         }
 
         //execute query
-        if (checkDate(date) && checkQuantity(quantity)) {
-            executeExport(productCode, quantity);
+        if (checkDate(exportModel.getDate()) && checkQuantity(exportModel.getQuantity())) {
+            executeExport(exportModel.getProductCode(), exportModel.getQuantity());
+            exportReport();
+            resetInfo();
         }
         else {
             AdditionalView.invalid();
@@ -69,9 +77,10 @@ public class ExportController extends BigController implements Initializable {
 
     }
 
-    public void loadData() {
+
+    public void loadComboData() {
         try {
-            ObservableList<String> list = FXCollections.observableArrayList ();
+            ObservableList<String> list = FXCollections.observableArrayList();
             String query = "SELECT `productCode` FROM `products`";
             resultSet = statement.executeQuery(query);
             while (resultSet.next()) {
@@ -117,10 +126,27 @@ public class ExportController extends BigController implements Initializable {
             preparedStatement.setString(2, productCode);
             preparedStatement.executeUpdate();
             updateMaxQuantity(null);
+
             AdditionalView.done();
         } catch(Exception e) {
 //            System.out.println("Can't execute export SQL");
             AdditionalView.invalid();
+        }
+    }
+
+    public void exportReport() {
+        try {
+            String query = "INSERT INTO `salemanagement`.`export` (`productCode`, `quantity`, `exportDate`, `destination`, `note`) " +
+                    "VALUES (?, ?, ?, ?, ?);";
+            preparedStatement = connection.prepareStatement(query);
+            preparedStatement.setString(1, exportModel.getProductCode());
+            preparedStatement.setInt(2, exportModel.getQuantity());
+            preparedStatement.setDate(3, exportModel.getDate());
+            preparedStatement.setString(4, exportModel.getDestination());
+            preparedStatement.setString(5, exportModel.getNote());
+            preparedStatement.executeUpdate();
+        } catch(Exception e) {
+            System.out.println("Can't report export");
         }
     }
 
@@ -144,5 +170,15 @@ public class ExportController extends BigController implements Initializable {
 
         Stage stage =(Stage) cancelButton.getScene().getWindow();
         stage.close();
+    }
+
+    public void resetInfo() {
+        quantityBox.setText("");
+
+        destinationBox.setText("");
+
+        dateBox.setValue(null);
+
+        noteBox.setText("");
     }
 }
