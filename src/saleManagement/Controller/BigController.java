@@ -1,6 +1,6 @@
 package saleManagement.Controller;
 
-import animatefx.animation.BounceInDown;
+import animatefx.animation.BounceInUp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -35,13 +35,13 @@ public abstract class BigController {
 
     public void changeHomeScene(ActionEvent event) {
         try {
-            Parent parent = FXMLLoader.load(getClass().getResource(Launcher.viewFolder + "Dashboard.fxml"));
-            parent.getStylesheets().add(getClass().getResource(Launcher.resouceFolder + "stylesheet.css").toString());
-            Scene homeScene = new Scene(parent);
+            Parent homeParent = FXMLLoader.load(getClass().getResource(Launcher.viewFolder + "Dashboard.fxml"));
+            homeParent.getStylesheets().add(getClass().getResource(Launcher.resouceFolder + "stylesheet.css").toString());
+            Scene homeScene = new Scene(homeParent);
             Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
             window.setScene(homeScene);
             window.show();
-            new BounceInDown(parent).play();
+            new BounceInUp(homeParent).play();
         } catch(Exception e) {
             e.printStackTrace();
         }

@@ -1,35 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="755.0" prefWidth="1200.0" stylesheets="@../../resource/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.RepositoryController">
+<AnchorPane prefHeight="755.0" prefWidth="1200.0" stylesheets="@../../resource/stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.RepositoryController">
    <children>
       <BorderPane prefHeight="755.0" prefWidth="1200.0">
          <center>
             <TableView fx:id="productsTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                <columns>
-                  <TableColumn fx:id="productName" editable="false" minWidth="20.0" prefWidth="117.0" text="Product Name" />
-                  <TableColumn fx:id="productCode" editable="false" minWidth="20.0" prefWidth="116.0" styleClass="backgroundMENU" text="Product Code" />
-                  <TableColumn fx:id="category" editable="false" minWidth="20.0" prefWidth="115.0" styleClass="backgroundMENU" text="Category" />
-                  <TableColumn fx:id="quantity" editable="false" minWidth="20.0" prefWidth="114.0" styleClass="backgroundMENU" text="Quantity In Stock" />
-                  <TableColumn fx:id="measure" editable="false" minWidth="20.0" prefWidth="71.0" styleClass="backgroundMENU" text="Measure" />
-                  <TableColumn fx:id="unitPrice" editable="false" prefWidth="70.0" text="Price $" />
-                  <TableColumn fx:id="details" prefWidth="398.0" text="Details" />
+                  <TableColumn fx:id="productName" editable="false" minWidth="20.0" prefWidth="173.86669921875" text="Product Name" />
+                  <TableColumn fx:id="productCode" editable="false" minWidth="20.0" prefWidth="131.20004272460938" styleClass="backgroundMENU" text="Product Code" />
+                  <TableColumn fx:id="category" editable="false" minWidth="20.0" prefWidth="103.20001220703125" styleClass="backgroundMENU" text="Category" />
+                  <TableColumn fx:id="quantity" editable="false" minWidth="20.0" prefWidth="125.86669921875" styleClass="backgroundMENU" text="Quantity In Stock" />
+                  <TableColumn fx:id="measure" editable="false" minWidth="20.0" prefWidth="67.73333740234375" styleClass="backgroundMENU" text="Measure" />
+                  <TableColumn fx:id="unitPrice" editable="false" prefWidth="58.9332275390625" text="Price $" />
+                  <TableColumn fx:id="details" prefWidth="386.39996337890625" text="Details" />
                </columns>
             </TableView>
          </center>
          <left>
-            <VBox prefHeight="755.0" prefWidth="198.0" styleClass="table-view" BorderPane.alignment="CENTER">
+            <VBox prefHeight="755.0" prefWidth="160.0" styleClass="table-view" BorderPane.alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" prefHeight="99.0" prefWidth="262.0" text="Import" />
-                  <Button mnemonicParsing="false" prefHeight="103.0" prefWidth="258.0" text="Export" />
-                  <Button mnemonicParsing="false" prefHeight="102.0" prefWidth="241.0" text="Advanced Search" />
-                  <Button mnemonicParsing="false" prefHeight="96.0" prefWidth="214.0" text="Last Transaction" />
+                  <Button fx:id="importButton" mnemonicParsing="false" onAction="#importButtonPressed" prefHeight="99.0" prefWidth="160.0" text="Import">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Button fx:id="exportButton" mnemonicParsing="false" onAction="#exportButtonPressed" prefHeight="103.0" prefWidth="160.0" text="Export">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonPressed" prefHeight="102.0" prefWidth="160.0" text="Advanced Search">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Button fx:id="recentsButton" mnemonicParsing="false" onAction="#recentsButtonPressed" prefHeight="96.0" prefWidth="160.0" text="Recents">
+                     <font>
+                        <Font size="16.0" />
+                     </font></Button>
+                  <Label fx:id="totalProductLabel" prefHeight="50.0" prefWidth="160.0">
+                     <VBox.margin>
+                        <Insets top="240.0" />
+                     </VBox.margin>
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="totalQuantityLabel" prefHeight="50.0" prefWidth="160.0">
+                     <padding>
+                        <Insets left="5.0" />
+                     </padding>
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font>
+                  </Label>
                </children></VBox>
          </left>
       </BorderPane>

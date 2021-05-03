@@ -73,7 +73,7 @@ public class DashboardController extends BigController {
             e.printStackTrace();
         }
         borderPane.setCenter(parent);
-        new animatefx.animation.FadeInLeft(parent).play();
+        new animatefx.animation.FadeIn(parent).play();
     }
 
 }

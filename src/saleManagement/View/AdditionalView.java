@@ -11,4 +11,20 @@ public class AdditionalView {
         alert.show();
     }
 
+    public static void invalid() {
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Warning!");
+        alert.setContentText("Please check information again! Something could be invalid!");
+        alert.setHeaderText(null);
+        alert.show();
+    }
+
+    public static void done() {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Congrat!");
+        alert.setContentText("Update has been done!");
+        alert.setHeaderText(null);
+        alert.show();
+    }
+
 }
