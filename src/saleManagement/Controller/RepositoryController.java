@@ -9,10 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import saleManagement.Launcher;
@@ -64,7 +61,10 @@ public class RepositoryController extends BigController implements Initializable
     @FXML
     private Label totalQuantityLabel;
 
-    private ObservableList<RepositoryModel> list;
+    @FXML
+    private TextField searchTextField;
+
+    private static ObservableList<RepositoryModel> list;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -75,22 +75,32 @@ public class RepositoryController extends BigController implements Initializable
         measure.setCellValueFactory(new PropertyValueFactory<>("measure"));
         details.setCellValueFactory(new PropertyValueFactory<>("details"));
         unitPrice.setCellValueFactory(new PropertyValueFactory<>("unitPrice"));
-        list = getDataList();
-        productsTable.setItems(list);
+        loadTable("");
         loadLabel();
     }
 
-    public ObservableList<RepositoryModel> getDataList() {
+    public void loadTable(String searchString) {
+        list = getDataList(searchString);
+        productsTable.setItems(list);
+    }
+
+    public static ObservableList<RepositoryModel> getDataList(String searchString) {
         ObservableList<RepositoryModel> tempList = FXCollections.observableArrayList();
         try {
-            String query = "SELECT * FROM products";
+            String query = "";
+            if (searchString.isEmpty()) {
+                query = "SELECT * FROM products";
+            }
+            else {
+                query = "SELECT * FROM products WHERE `productName` LIKE '" + searchString + "%'";
+            }
             resultSet = statement.executeQuery(query);
-            while (this.resultSet.next()) {
+            while (resultSet.next()) {
                 tempList.add(new RepositoryModel(resultSet.getString("productName"), resultSet.getString("productCode"),
                         resultSet.getString("productLine"),resultSet.getString("measure"), resultSet.getNString("details"), resultSet.getInt("quantity"), resultSet.getInt("unitPrice")));
             }
         } catch(Exception e) {
-            e.printStackTrace();
+            tempList.clear();
         }
         return tempList;
     }
@@ -107,21 +117,28 @@ public class RepositoryController extends BigController implements Initializable
         }
     }
 
+    public void checkEmptySearch(ActionEvent event) {
+        if (searchTextField.getText().isEmpty()) {
+            loadTable("");
+        }
+    }
+
     public void importButtonPressed(ActionEvent event) {
         loadFunction("Import.fxml");
     }
 
     public void exportButtonPressed(ActionEvent event) {
         loadFunction("Export.fxml");
-
     }
 
     public void searchButtonPressed(ActionEvent event) {
+        String searchText = searchTextField.getText();
+        loadTable(searchText);
         System.out.println("search");
     }
 
     public void recentsButtonPressed(ActionEvent event) {
-        System.out.println("recents");
+        loadFunction("Recents.fxml");
     }
 
     public void loadFunction(String fxmlFile) {
@@ -136,4 +153,5 @@ public class RepositoryController extends BigController implements Initializable
             System.out.println("Can't load function File");
         }
     }
+
 }

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.RecentsController">
+   <left>
+      <TableView fx:id="importTable" prefHeight="400.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn fx:id="importCode" prefWidth="81.0" text="Import Code" />
+            <TableColumn fx:id="importProductCode" prefWidth="100.0" text="Product Code" />
+            <TableColumn fx:id="importQuantity" prefWidth="62.0" text="Quantity" />
+            <TableColumn fx:id="importDate" prefWidth="105.5999816894531" text="Date" />
+         </columns>
+      </TableView>
+   </left>
+   <right>
+      <TableView fx:id="exportTable" prefHeight="400.0" prefWidth="350.0" BorderPane.alignment="CENTER">
+         <columns>
+            <TableColumn fx:id="exportCode" prefWidth="81.0" text="Export Code" />
+            <TableColumn fx:id="exportProductCode" prefWidth="100.0" text="Product Code" />
+            <TableColumn fx:id="exportQuantity" prefWidth="62.0" text="Quantity" />
+            <TableColumn fx:id="exportDate" prefWidth="104.8000427246094" text="Date" />
+         </columns>
+      </TableView>
+   </right>
+</BorderPane>

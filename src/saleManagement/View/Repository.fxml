@@ -5,6 +5,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
@@ -29,25 +32,74 @@
          <left>
             <VBox prefHeight="755.0" prefWidth="160.0" styleClass="table-view" BorderPane.alignment="CENTER">
                <children>
-                  <Button fx:id="importButton" mnemonicParsing="false" onAction="#importButtonPressed" prefHeight="99.0" prefWidth="160.0" text="Import">
+                  <Label alignment="CENTER" prefHeight="70.0" prefWidth="160.0" styleClass="shadow" text="MenuBar">
+                     <font>
+                        <Font name="Calibri" size="23.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="searchTextField" prefHeight="40.0" prefWidth="160.0" promptText="Search product name" styleClass="searchTextFieldBar">
+                     <VBox.margin>
+                        <Insets left="5.0" right="5.0" top="15.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Calibri" size="15.0" />
+                     </font></TextField>
+                  <Button fx:id="searchButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#searchButtonPressed" prefHeight="80.0" prefWidth="158.0" styleClass="dash" text="Search">
                      <font>
                         <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="exportButton" mnemonicParsing="false" onAction="#exportButtonPressed" prefHeight="103.0" prefWidth="160.0" text="Export">
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/search.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="importButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#importButtonPressed" prefHeight="99.0" prefWidth="160.0" styleClass="dash" text="Import">
                      <font>
                         <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#searchButtonPressed" prefHeight="102.0" prefWidth="160.0" text="Advanced Search">
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/import.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="exportButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#exportButtonPressed" prefHeight="103.0" prefWidth="160.0" styleClass="dash" text="Export">
                      <font>
                         <Font size="16.0" />
-                     </font></Button>
-                  <Button fx:id="recentsButton" mnemonicParsing="false" onAction="#recentsButtonPressed" prefHeight="96.0" prefWidth="160.0" text="Recents">
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/export.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin></Button>
+                  <Button fx:id="recentsButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#recentsButtonPressed" prefHeight="96.0" prefWidth="160.0" styleClass="dash" text="Recents">
                      <font>
                         <Font size="16.0" />
-                     </font></Button>
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../resource/img/recent.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <VBox.margin>
+                        <Insets top="15.0" />
+                     </VBox.margin></Button>
                   <Label fx:id="totalProductLabel" prefHeight="50.0" prefWidth="160.0">
                      <VBox.margin>
-                        <Insets top="240.0" />
+                        <Insets top="90.0" />
                      </VBox.margin>
                      <padding>
                         <Insets left="5.0" />

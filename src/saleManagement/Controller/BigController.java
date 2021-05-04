@@ -15,10 +15,10 @@ public abstract class BigController {
     protected static final String DB_URL = "jdbc:mysql://localhost:3306/saleManagement";
     protected static final String USER_NAME = "root";
     protected static final String PASSWORD = "";
-    protected Connection connection = null;
-    protected Statement statement = null;
-    protected PreparedStatement preparedStatement = null;
-    protected ResultSet resultSet = null;
+    protected static Connection connection = null;
+    protected static Statement statement = null;
+    protected static PreparedStatement preparedStatement = null;
+    protected static ResultSet resultSet = null;
 
     public BigController() {
         try {

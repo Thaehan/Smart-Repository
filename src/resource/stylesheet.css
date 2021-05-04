@@ -16,6 +16,7 @@
 
 .labelMN {
     -fx-background-color: rgba(0, 0, 0, 0);
+    -fx-effect: dropShadow(three-pass-box, rgba(0, 0, 0, 0.2), 10.0, 0.0, 0.0, 10.0);
     -fx-text-fill: linear-gradient(to bottom right, #424efd, #ff73dc);
 }
 
@@ -181,4 +182,9 @@
 
 .table-view .column-header-background {
     -fx-background-color: #e60000;
+}
+
+.searchTextFieldBar {
+    -fx-background-color: rgba(255, 255, 255, 0.596);
+    -fx-background-radius: 10;
 }

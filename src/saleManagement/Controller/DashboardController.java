@@ -25,8 +25,6 @@ public class DashboardController extends BigController {
     @FXML
     protected Button stockButton;
     @FXML
-    protected Button helpButton;
-    @FXML
     protected Button logoutButton;
 
     public void changeLoginScene(ActionEvent event) {
@@ -59,10 +57,6 @@ public class DashboardController extends BigController {
 
     public void stockButtonPressed(ActionEvent event) {
         loadUI("Repository.fxml");
-    }
-
-    public void helpButtonPressed(ActionEvent event) {
-        loadUI("Help.fxml");
     }
 
     protected void loadUI(String fxmlFile) {
