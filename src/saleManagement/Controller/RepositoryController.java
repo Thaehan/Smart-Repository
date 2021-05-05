@@ -117,12 +117,6 @@ public class RepositoryController extends BigController implements Initializable
         }
     }
 
-    public void checkEmptySearch(ActionEvent event) {
-        if (searchTextField.getText().isEmpty()) {
-            loadTable("");
-        }
-    }
-
     public void importButtonPressed(ActionEvent event) {
         loadFunction("Import.fxml");
     }
@@ -134,7 +128,6 @@ public class RepositoryController extends BigController implements Initializable
     public void searchButtonPressed(ActionEvent event) {
         String searchText = searchTextField.getText();
         loadTable(searchText);
-        System.out.println("search");
     }
 
     public void recentsButtonPressed(ActionEvent event) {

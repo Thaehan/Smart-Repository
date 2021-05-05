@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.DashboardController">
+<AnchorPane prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.DashboardController">
    <children>
       <BorderPane fx:id="borderPane" prefHeight="800.0" prefWidth="1200.0" styleClass="backgroundC" stylesheets="@../../resource/stylesheet.css">
          <top>

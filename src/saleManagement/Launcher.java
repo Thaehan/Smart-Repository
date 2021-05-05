@@ -13,8 +13,8 @@ public class Launcher extends Application{
 
     public void start(Stage primaryStage) {
         try{
-//            parent = FXMLLoader.load(getClass().getResource(viewFolder + "Login.fxml"));
-            parent = FXMLLoader.load(getClass().getResource(viewFolder + "Dashboard.fxml"));
+            parent = FXMLLoader.load(getClass().getResource(viewFolder + "Login.fxml"));
+//            parent = FXMLLoader.load(getClass().getResource(viewFolder + "Dashboard.fxml"));
             Scene loginScene = new Scene(parent);
             parent.getStylesheets().add(getClass().getResource(resouceFolder + "stylesheet.css").toString());
             primaryStage.setTitle("Sales Management");

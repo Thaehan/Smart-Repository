@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="755.0" prefWidth="1200.0" stylesheets="@../../resource/stylesheet.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.RepositoryController">
+<AnchorPane prefHeight="755.0" prefWidth="1200.0" stylesheets="@../../resource/stylesheet.css" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="saleManagement.Controller.RepositoryController">
    <children>
       <BorderPane prefHeight="755.0" prefWidth="1200.0">
          <center>
@@ -37,7 +37,7 @@
                         <Font name="Calibri" size="23.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="searchTextField" prefHeight="40.0" prefWidth="160.0" promptText="Search product name" styleClass="searchTextFieldBar">
+                  <TextField fx:id="searchTextField" onAction="#searchButtonPressed" prefHeight="40.0" prefWidth="160.0" promptText="Search product name" styleClass="searchTextFieldBar">
                      <VBox.margin>
                         <Insets left="5.0" right="5.0" top="15.0" />
                      </VBox.margin>
