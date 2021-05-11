@@ -48,12 +48,12 @@
          <center>
             <Pane accessibleRoleDescription="background.png" prefHeight="900.0" prefWidth="697.0" styleClass="linear-grad" stylesheets="@../../resource/stylesheet.css" BorderPane.alignment="CENTER">
                <children>
-                  <Label layoutX="40.0" layoutY="56.0" prefHeight="95.0" prefWidth="202.0" text="Sales " textFill="WHITE">
+                  <Label layoutX="40.0" layoutY="56.0" prefHeight="95.0" prefWidth="202.0" text="Smart" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="80.0" />
                      </font>
                   </Label>
-                  <Label layoutX="40.0" layoutY="162.0" text="Management" textFill="WHITE">
+                  <Label layoutX="40.0" layoutY="162.0" text="Repository" textFill="WHITE">
                      <font>
                         <Font name="Calibri Bold" size="59.0" />
                      </font>
